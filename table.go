@@ -420,7 +420,7 @@ func (t *Table) ArrowSchema(
 	}
 
 	rowGroups := []dynparquet.DynamicRowGroup{}
-	err = t.ActiveBlock().RowGroupIterator(ctx, nil, filter, false,
+	err = t.ActiveBlock().RowGroupIterator(ctx, filterExpr, filter, false,
 		func(rg dynparquet.DynamicRowGroup) bool {
 			rowGroups = append(rowGroups, rg)
 			return true
